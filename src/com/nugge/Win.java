@@ -22,7 +22,7 @@ public class Win {
         Arrays.sort(kortvarden);
 
         double prize = 0;
-        int[] lista = new int[13];
+        int[] lista = new int[18];
 
         // this is for finding pairs, triples or quads //
 
@@ -43,55 +43,50 @@ public class Win {
         if (kortvarden[4] == 13) king = true;
         if (x == 4) {
             System.out.println("You have for of a kind!! ");
-            prize = 12;
+            return 12;
         }
         if (x == 3 && y == 2) {
             System.out.println("You have a full house!! ");
-            prize = 8;
+            return 8;
         }
         if (x == 3 && y == 1) {
             System.out.println("You have three of a kind!! ");
-            prize = 6;
+            return 6;
         }
 
         if (x == 2 && y == 2) {
             System.out.println("You have two pairs !! ");
-            prize = 4;
+            return 4;
         }
         if (x == 2 && y == 1) {
             System.out.println("You have a pair !! ");
-            prize = 2;
+            return 2;
         }
         if (kortsuits[0].equals(kortsuits[1]) && kortsuits[1].equals(kortsuits[2]) && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
-            //System.out.println("Du har en flush");
             flush = true;
         }
         if (kortvarden[4] - kortvarden[3] == 1 && kortvarden[3] - kortvarden[2] == 1 && kortvarden[2] - kortvarden[1] == 1 && kortvarden[1] - kortvarden[0] == 1) {
             straight = true;
         }
-        if (kortvarden[4] - kortvarden[3] == -12 && kortvarden[3] - kortvarden[2] == 1 && kortvarden[2] - kortvarden[1] == 1 && kortvarden[1] - kortvarden[0] == 1) {
+        if (kortvarden[4] - kortvarden[0] == 12 && kortvarden[4] - kortvarden[3] == 1 && kortvarden[3] - kortvarden[2] == 1 && kortvarden[2] - kortvarden[1] == 1) {
             straight = true;
-        }
-        if (flush == true && straight == false) {
+    }
+        if (flush && !straight) {
             System.out.println("You have a flush ");
-            prize = 12;
+            return 12;
         }
-        if (flush == false && straight == true) {
+        if (!flush && straight) {
             System.out.println("You have a straight");
-            prize = 10;
+            return 10;
         }
-        if (flush == true && straight == true) {
+        if (flush && !king) {
             System.out.println("You have a straight flush");
-            prize = 50;
+            return 50;
         }
-        if (flush == true && straight == true && king == true){
+        if (flush){
             System.out.println("You have a Royal Straight Flush");
-            prize = 100;
-        }
-
-        return prize;
-
-
+            return 100;
+        }return prize;
     }
 
 

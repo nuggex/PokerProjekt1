@@ -7,7 +7,7 @@ public class Main {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+        double mymoney =0;
         Win mywin  = new Win();
         Deck mydeck = new Deck(Cardgenerator.getNewDeck());
 
@@ -35,11 +35,14 @@ public class Main {
 
 
             }
-            if(i != 0)System.out.println(current);
+            if(i == 0)System.out.println(current);
             i++;
 
         }
-        System.out.println(current);
+        //System.out.println(current);
         System.out.println(mywin.wins(current));
+        mymoney += mywin.wins(current);
+       // System.out.println("I have" + mymoney);
+
     }
 }
