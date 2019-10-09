@@ -20,9 +20,9 @@ public class Main {
         //System.out.println(mydeck.deck);
         int i = 0;
         int cc = 1;
-        System.out.println("Welcome to the Poker game \n One game costs 2 dollars\n Input 1 to start. (We were kind enough to give you 10 dollars)");
-        int play = input.nextInt();
-        while(play==1){
+        System.out.println("Welcome to the Poker game \n One game costs 2 dollars\n  Do you want to play? Yes / No \n (We were kind enough to give you 10 dollars)");
+        char play = input.next().charAt(0);
+        while(play=='Y'){
             i=0;
             cc=1;
             mymoney -= 2;
@@ -66,21 +66,18 @@ public class Main {
         //OUBLING FUNCTIONALITY GOES HERE ->> Player.java needs to shuffle a new deck
         double temp = mywin.wins(current);
         if(temp>0) {
-            System.out.println("Do you want to double? Y / N");
+            System.out.println("Do you want to double? Yes / No");
             char d = input.next().charAt(0);
             for(int l = 0; l<1; l++) {
                 if (d == 'Y') {
                     temp = myplayer.doubler(temp);
                     if(temp > 0){
-                        System.out.println("Do you want to double again? Y / N");
+                        System.out.println("Do you want to double again? Yes / No");
                         d = input.next().charAt(0);
                         if(d == 'Y') l--;
                     }
                 }
-                if (d == 'N') {
-                    mymoney += temp;
-                }
-            }
+            }mymoney += temp;
         }
         System.out.println("You have: " + mymoney +" dollars in the bank");
 
@@ -88,8 +85,8 @@ public class Main {
                 System.out.println("You can't afford to play");
                 return;
             }
-            System.out.println("\nDo you want to continue playing? Yes = 1 , No = 0");
-            play = input.nextInt();
+            System.out.println("\nDo you want to continue playing? Yes / No ");
+            play = input.next().charAt(0);
 
         }
         System.out.println("Sad to see you go");

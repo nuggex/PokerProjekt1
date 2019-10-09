@@ -30,7 +30,8 @@ class Player {
             gg = 6;
         }
         ArrayList<Card> card = Cardgenerator.getNewDeck();
-        int f = card.get(0).values;
+        // int f = card.get(0).values;
+        int f = 6;
         System.out.println("Your guess was " +guess+" And the card was " +card.get(0));
         if(f ==7){
             System.out.println("No winnings");
