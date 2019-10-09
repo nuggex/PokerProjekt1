@@ -8,11 +8,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Deck mydeck = new Deck(cardgenerator.getNewDeck());
+        Deck mydeck = new Deck(Cardgenerator.getNewDeck());
 
         Player myplayer = new Player();
         System.out.println(mydeck.deck);
-        ArrayList<card> current;
+        ArrayList<Card> current;
         current = mydeck.firstdeal();
 
         System.out.println(current);
@@ -31,6 +31,7 @@ public class Main {
             }
             if(i != 0)System.out.println(current);
             i++;
+
         }
         System.out.println(current);
         System.out.println(mydeck.deck);
