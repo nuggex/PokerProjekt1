@@ -8,15 +8,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Win mywin  = new Win();
         Deck mydeck = new Deck(Cardgenerator.getNewDeck());
 
         Player myplayer = new Player();
-        System.out.println(mydeck.deck);
+        //System.out.println(mydeck.deck);
         ArrayList<Card> current;
         current = mydeck.firstdeal();
 
         System.out.println(current);
-        System.out.println(mydeck.deck);
+        //System.out.println(mydeck.deck);
         int i = 0;
         int cc = 1;
         while (cc != 0 && i < 2) {
@@ -26,14 +27,19 @@ public class Main {
 
             for (int j = 0; j < cc; j++) {
 
+
                 int change = myplayer.changecard();
+                if(change == -1) cc = j;
                 current.set(change, mydeck.deck.remove(0));
+                System.out.println(current);
+
+
             }
             if(i != 0)System.out.println(current);
             i++;
 
         }
         System.out.println(current);
-        System.out.println(mydeck.deck);
+        System.out.println(mywin.wins(current));
     }
 }

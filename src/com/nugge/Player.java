@@ -5,12 +5,20 @@ import java.util.Scanner;
 
 public class Player {
 
-    int changecard (){
+    int changecard() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter which card you want to change 1-5 (0 for none): ");
-        return input.nextInt()-1;
+        int test = 0;
+        for (int i = 0; i < 1; i++) {
+            test = input.nextInt();
+            if (test == 0) {
+                System.out.println("Not a valid number please try again!");
+                i--;
+            }
+
         }
+        return test - 1;
 
+    }
 }
-
 
