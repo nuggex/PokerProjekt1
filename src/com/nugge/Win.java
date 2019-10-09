@@ -42,24 +42,24 @@ public class Win {
 
         if (kortvarden[4] == 13) king = true;
         if (x == 4) {
-            System.out.println("You have for of a kind!! ");
+            System.out.println("Four of a kind! == 12 Dollars");
             return 12;
         }
         if (x == 3 && y == 2) {
-            System.out.println("You have a full house!! ");
+            System.out.println("Full House! == 8 Dollars");
             return 8;
         }
         if (x == 3 && y == 1) {
-            System.out.println("You have three of a kind!! ");
+            System.out.println("Three of a kind! == 6 Dollars");
             return 6;
         }
 
         if (x == 2 && y == 2) {
-            System.out.println("You have two pairs !! ");
+            System.out.println("Two pairs! == 4 Dollars");
             return 4;
         }
         if (x == 2 && y == 1) {
-            System.out.println("You have a pair !! ");
+            System.out.println("Pair! == 2 Dollars");
             return 2;
         }
         if (kortsuits[0].equals(kortsuits[1]) && kortsuits[1].equals(kortsuits[2]) && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
@@ -72,21 +72,24 @@ public class Win {
             straight = true;
     }
         if (flush && !straight) {
-            System.out.println("You have a flush ");
+            System.out.println("Flush! == 12 Dollars");
             return 12;
         }
         if (!flush && straight) {
-            System.out.println("You have a straight");
+            System.out.println("Straight! == 10 Dollars");
             return 10;
         }
         if (flush && !king) {
-            System.out.println("You have a straight flush");
+            System.out.println("Straight Flush! == 50 Dollars");
             return 50;
         }
         if (flush){
-            System.out.println("You have a Royal Straight Flush");
+            System.out.println("Royal Straight Flush! == 100 Dollars");
             return 100;
-        }return prize;
+        }
+        System.out.println("No winning this round!");
+        return prize;
+
     }
 
 

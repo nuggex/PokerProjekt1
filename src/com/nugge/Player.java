@@ -11,11 +11,10 @@ public class Player {
         int test = 0;
         for (int i = 0; i < 1; i++) {
             test = input.nextInt();
-            if (test == 0) {
+            if (test <= 0 || test >5) {
                 System.out.println("Not a valid number please try again!");
                 i--;
             }
-
         }
         return test - 1;
 
