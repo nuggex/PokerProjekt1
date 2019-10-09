@@ -26,9 +26,7 @@ public class Win {
 
         // this is for finding pairs, triples or quads //
 
-        for (int i = 0; i < 5; i++) {
-            lista[kortvarden[i]]++;
-        }
+        for (int i = 0; i < 5; i++) lista[kortvarden[i]]++;
 
        /* for (Card v : hand
         ) {
