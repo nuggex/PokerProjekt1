@@ -60,7 +60,28 @@ public class Main {
         }
         //System.out.println(current);
         //System.out.println(mywin.wins(current));
-        mymoney += mywin.wins(current);
+
+        //mymoney += mywin.wins(current);
+
+        //OUBLING FUNCTIONALITY GOES HERE ->> Player.java needs to shuffle a new deck
+        double temp = mywin.wins(current);
+        if(temp>0) {
+            System.out.println("Do you want to double? Y / N");
+            char d = input.next().charAt(0);
+            for(int l = 0; l<1; l++) {
+                if (d == 'Y') {
+                    temp = myplayer.doubler(temp);
+                    if(temp > 0){
+                        System.out.println("Do you want to double again? Y / N");
+                        d = input.next().charAt(0);
+                        if(d == 'Y') l--;
+                    }
+                }
+                if (d == 'N') {
+                    mymoney += temp;
+                }
+            }
+        }
         System.out.println("You have: " + mymoney +" dollars in the bank");
 
             if(mymoney<2){

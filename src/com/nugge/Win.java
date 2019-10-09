@@ -5,7 +5,7 @@ import com.sun.deploy.util.ArrayUtil;
 import java.util.*;
 
 
-public class Win {
+class Win {
 
 
     double wins(ArrayList<Card> hand) {
