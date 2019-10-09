@@ -20,7 +20,7 @@ public class Main {
         //System.out.println(mydeck.deck);
         int i = 0;
         int cc = 1;
-        while (cc != 0 && i < 2) {
+        while (cc != 0 && i < 100) {
 
             System.out.println("Hur många kort vill du byta? [0-5]");
             cc = input.nextInt();
