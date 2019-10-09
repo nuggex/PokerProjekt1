@@ -27,9 +27,6 @@ public class Win {
         Arrays.sort(lista);
         int x = lista[lista.length - 1];
         int y = lista[lista.length - 2];
-        int z = lista[lista.length - 3];
-        int t = lista[lista.length - 4];
-        int v = lista[lista.length - 5];
         if (x == 4) {
             System.out.println("You have for of a kind!! ");
             prize = 12;
