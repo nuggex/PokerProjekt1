@@ -40,9 +40,9 @@ public class Main {
 
         }
         //System.out.println(current);
-        System.out.println(mywin.wins(current));
+        //System.out.println(mywin.wins(current));
         mymoney += mywin.wins(current);
-       // System.out.println("I have" + mymoney);
+        System.out.println("You have: " + mymoney +" dollars in the bank");
 
     }
 }
