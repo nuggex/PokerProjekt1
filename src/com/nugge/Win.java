@@ -12,18 +12,29 @@ public class Win {
 
         int[] kortvarden = {hand.get(0).values, hand.get(1).values, hand.get(2).values, hand.get(3).values, hand.get(4).values};
         String[] kortsuits = {hand.get(0).color, hand.get(1).color, hand.get(2).color, hand.get(3).color, hand.get(4).color};
-
+       /* String kort1 = hand.get(0).color;
+        String kort2 = hand.get(1).color;
+        String kort3 = hand.get(2).color;
+        String kort4 = hand.get(3).color;
+        String kort5 = hand.get(4).color;
+        */
 
         Arrays.sort(kortvarden);
+
         double prize = 0;
         int[] lista = new int[13];
 
         // this is for finding pairs, triples or quads //
-        for (Card v : hand
+
+        for(int i = 0; i<5; i++){
+            lista[kortvarden[i]]++;
+        }
+
+       /* for (Card v : hand
         ) {
 
             lista[v.values]++;
-        }
+        }*/
         Arrays.sort(lista);
         int x = lista[lista.length - 1];
         int y = lista[lista.length - 2];
