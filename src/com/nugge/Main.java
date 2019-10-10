@@ -32,29 +32,24 @@ public class Main {
                 System.out.println("How many cards do you want to change? [0-5]");
                 for (int k = 0; k < 1; k++) {
                     char inputchar = input.next().charAt(0);
-                    if(inputchar !='0' && inputchar!='1' && inputchar!='2'&& inputchar!='3'&&inputchar!='4'&&inputchar!='5'){
+                    if (inputchar != '0' && inputchar != '1' && inputchar != '2' && inputchar != '3' && inputchar != '4' && inputchar != '5') {
                         System.out.println("Not a valid number");
                         k--;
                     }
                     cc = Character.getNumericValue(inputchar);
-                   
                 }
                 for (int j = 0; j < cc; j++) {
 
                     int change = myplayer.changecard();
 
                     if (change == -1) cc = j;
-                    if(change > -1) {
+                    if (change > -1) {
                         current.set(change, mydeck.deck.remove(0));
                     }
                 }
                 System.out.println(current);
                 i++;
             }
-            //System.out.println(current);
-            //System.out.println(mywin.wins(current));
-
-            //mymoney += mywin.wins(current);
 
             //Doubling functionality from Player.Java. temp stores the winnings untill player decides to end doubling.
             double temp = mywin.wins(current);
@@ -73,23 +68,21 @@ public class Main {
                 }
                 mymoney += temp;
             }
-            System.out.println("You have: " + mymoney + " Bang bucks in the bank");
+            System.out.println("You have: " + mymoney + " Bang Bucks in the bank");
 
             if (mymoney < 2) {
-                System.out.println("You can't afford to play");
+                System.out.println("You can't afford to play!");
                 return;
             }
             System.out.println("\nDo you want to continue playing? Yes / No ");
-            for(int z = 0; z<1; z++){
+            for (int z = 0; z < 1; z++) {
                 play = toUpperCase(input.next().charAt(0));
-                if(play!='Y' && play!='N'){
+                if (play != 'Y' && play != 'N') {
                     System.out.println("Please enter either Yes or No you cheeky scrub");
                     z--;
                 }
-
             }
-
         }
-        System.out.println("Sad to see you go, you cash out a total of: " +mymoney+" Bang Bucks");
+        System.out.println("Sad to see you go, you cash out a total of: " + mymoney + " Bang Bucks");
     }
 }

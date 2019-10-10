@@ -13,9 +13,11 @@ class Card {
     }
 }
 
+
 class Cardgenerator {
     private static String[] color = {"♦", "♥", "♣", "♠"};
 
+    // Populate the deck and shuffle it //
     static ArrayList<Card> getNewDeck() {
         ArrayList<Card> deck = new ArrayList<>();
         for (int i = 1; i < 14; i++) {
@@ -33,12 +35,14 @@ class Cardgenerator {
 
 class Deck {
 
+    // Create the empty deck //
     ArrayList<Card> deck;
 
     Deck(ArrayList<Card> freshd) {
         deck = freshd;
     }
 
+    // Deal the first hand //
     ArrayList<Card> firstdeal() {
         ArrayList<Card> hand = new ArrayList<>();
         for (int i = 0; i < 5; i++) {

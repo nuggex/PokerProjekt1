@@ -30,17 +30,22 @@ class Win {
         prize += getThreeOfAKind(x, y);
         prize += getTwoPairs(x, y);
         prize += getPair(x, y);
-        prize += getAceHigh(kortvarden, x, y);
         prize += getStraightAndFlushes(kortvarden, kortsuits);
 
+
+        //exception to find ace high if all else fails, this was the easiest way of doing this wihtout makinga a bunch of conditions for the if statement to find a hand with only ace high //
         if (prize == 0) {
-            System.out.println("No Winnings this round");
+            prize += getAceHigh(kortvarden, x, y);
+
+            if (prize == 0) {
+                System.out.println("No Winnings this round");
+            }
         }
         return prize;
-
     }
 
-    public double getQuads(int x, int y) {
+    // methods for each winning condtion lie here //
+    private double getQuads(int x, int y) {
         if (x == 4) {
             System.out.println("Four of a kind! == 12 Bang Bucks");
             return 12;
@@ -48,7 +53,7 @@ class Win {
         return 0;
     }
 
-    public double getFullHouse(int x, int y) {
+    private double getFullHouse(int x, int y) {
         if (x == 3 && y == 2) {
             System.out.println("Full House! == 8 Bang Bucks");
             return 8;
@@ -56,7 +61,7 @@ class Win {
         return 0;
     }
 
-    public double getThreeOfAKind(int x, int y) {
+    private double getThreeOfAKind(int x, int y) {
         if (x == 3 && y == 1) {
             System.out.println("Three of a kind! == 6 Bang Bucks");
             return 6;
@@ -64,7 +69,7 @@ class Win {
         return 0;
     }
 
-    public double getTwoPairs(int x, int y) {
+    private double getTwoPairs(int x, int y) {
         if (x == 2 && y == 2) {
             System.out.println("Two pairs! == 4 Bang Bucks");
             return 4;
@@ -72,7 +77,7 @@ class Win {
         return 0;
     }
 
-    public double getPair(int x, int y) {
+    private double getPair(int x, int y) {
         if (x == 2 && y == 1) {
             System.out.println("Pair! == 2 Bang Bucks");
             return 2;
@@ -80,15 +85,16 @@ class Win {
         return 0;
     }
 
-    public double getAceHigh(int[] kortvarden, int x, int y) {
-        if (kortvarden[0] == 1 && x == 1 && x - y != 1) {
+    private double getAceHigh(int[] kortvarden, int x, int y) {
+        if (kortvarden[0] == 1 && x == 1) {
             System.out.println("Ace High Up In This House!! == 1 Bang Buck");
             return 1;
         }
         return 0;
     }
 
-    public double getStraightAndFlushes(int kortvarden[], String kortsuits[]) {
+    // This condition took some doing, use math to generate booleans to first test the hand and then use the booleans for identifying the hand //
+    private double getStraightAndFlushes(int[] kortvarden, String[] kortsuits) {
 
         boolean flush = false;
         boolean straight = false;
