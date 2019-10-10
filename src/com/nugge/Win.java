@@ -8,6 +8,7 @@ class Win {
 
         int[] kortvarden = {hand.get(0).values, hand.get(1).values, hand.get(2).values, hand.get(3).values, hand.get(4).values};
         String[] kortsuits = {hand.get(0).color, hand.get(1).color, hand.get(2).color, hand.get(3).color, hand.get(4).color};
+
 /* This was some dev shit to figure out a overflow issue String kort1 = hand.get(0).color;
         String kort2 = hand.get(1).color;
         String kort3 = hand.get(2).color;
@@ -51,6 +52,7 @@ class Win {
             System.out.println("Two pairs! == 4 Bang Bucks");
             return 4;
         }
+
         if (x == 2 && y == 1) {
             System.out.println("Pair! == 2 Bang Bucks");
             return 2;

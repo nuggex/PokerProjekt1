@@ -13,11 +13,12 @@ class Player {
         int change = 0;
         for (int i = 0; i < 1; i++) {
             test = input.next().charAt(0);
-            if (test !='1'&& test!='2' && test!='3' && test!='4'&&  test!='5') {
+            if (test != '0' && test !='1'&& test!='2' && test!='3' && test!='4'&&  test!='5') {
                 System.out.println("Not a valid number please try again!");
                 i--;
             }
             change = Character.getNumericValue(test);
+
         }
         return change - 1;
 

@@ -15,7 +15,7 @@ public class Main {
         Player myplayer = new Player();
 
         System.out.println("Welcome to the Poker game \n One game costs 2 Bang Bucks\n  ");
-        System.out.println("WINNING HANDS \n ♥1 ♥13 ♥12 ♥11 ♥10 Royal Flush 100 \n ♦8 ♦7 ♦6 ♦5 ♦4     Straight Flush 50 \n ♦10 ♥10 ♣10 ♠10 ♣5 Four of a Kind 12 \n ♦7 ♥7 ♣1 ♠1 ♥1     Full House 10 \n ♦3 ♦8 ♦9 ♦11 ♦13   Flush 12 \n ♦10 ♥9 ♣8 ♠7 ♣6    Straight 10 \n ♦5 ♥5 ♣5 ♠2 ♣9     Three of a kind 6 \n ♦10 ♥10 ♣8 ♠8 ♣6   Two Pairs 4 \n ♦9 ♥9 ♣10 ♠7 ♣6    Pair 2\n ♦1 ♣8 ♠7 ♥9 ♣6     Ace High 1   ");
+        System.out.println("WINNING HANDS \n ♥1  ♥13 ♥12 ♥11 ♥10    Royal Flush 100 \n ♦8  ♦7  ♦6  ♦5  ♦4     Straight Flush 50 \n ♦10 ♥10 ♣10 ♠10 ♣5     Four of a Kind 12 \n ♦7  ♥7  ♣1  ♠1  ♥1     Full House 10 \n ♦3  ♦8  ♦9  ♦11 ♦13    Flush 12 \n ♦10 ♥9  ♣8  ♠7  ♣6     Straight 10 \n ♦5  ♥5  ♣5  ♠2  ♣9     Three of a kind 6 \n ♦10 ♥10 ♣8  ♠8  ♣6     Two Pairs 4 \n ♦9  ♥9  ♣10 ♠7  ♣6     Pair 2\n ♦1  ♣8  ♠7  ♥9  ♣6     Ace High 1   ");
         System.out.println(" Do you want to play? Yes / No \n (We were kind enough to give you 10 Bang Bucks)");
         char play = toUpperCase(input.next().charAt(0));
         while (play == 'Y') {
@@ -42,9 +42,11 @@ public class Main {
                 for (int j = 0; j < cc; j++) {
 
                     int change = myplayer.changecard();
-                    if (change == -1) cc = j;
-                    current.set(change, mydeck.deck.remove(0));
 
+                    if (change == -1) cc = j;
+                    if(change > -1) {
+                        current.set(change, mydeck.deck.remove(0));
+                    }
                 }
                 System.out.println(current);
                 i++;
