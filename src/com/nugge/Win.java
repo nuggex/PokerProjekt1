@@ -6,15 +6,9 @@ class Win {
 
     double wins(ArrayList<Card> hand) {
 
+        // kortvarden used for straight, kortsuits for flushes //
         int[] kortvarden = {hand.get(0).values, hand.get(1).values, hand.get(2).values, hand.get(3).values, hand.get(4).values};
         String[] kortsuits = {hand.get(0).color, hand.get(1).color, hand.get(2).color, hand.get(3).color, hand.get(4).color};
-
-/* This was some dev shit to figure out a overflow issue String kort1 = hand.get(0).color;
-        String kort2 = hand.get(1).color;
-        String kort3 = hand.get(2).color;
-        String kort4 = hand.get(3).color;
-        String kort5 = hand.get(4).color;
-        */
 
         Arrays.sort(kortvarden);
 
@@ -22,41 +16,85 @@ class Win {
         int[] lista = new int[18]; //for reasons currently unknow lista has to be 17 or higher for everything to work. It's size really doesn't matter thou.
 
         // this is for finding pairs, triples or quads //
-        // adds 1 to the position in the lista array of the value of the card in the hand / /
+        // adds 1 to the position in the lista array of the value of the card in the hand  used for pairs, triples, quads, full house and ace high/ /
         for (int i = 0; i < 5; i++) lista[kortvarden[i]]++;
 
-        // x = highest card, y = next highest card, booleans for figuring out straight and flush combinations //
+        // x = highest card, y = next highest card //
         Arrays.sort(lista);
         int x = lista[lista.length - 1];
         int y = lista[lista.length - 2];
-        boolean flush = false;
-        boolean straight = false;
-        boolean king = false;
 
-        // Checks all kinds of winning hand //
-        if (kortvarden[4] == 13) king = true;
+        // run all methods for checking the hand for wins //
+        prize += getQuads(x, y);
+        prize += getFullHouse(x, y);
+        prize += getThreeOfAKind(x, y);
+        prize += getTwoPairs(x, y);
+        prize += getPair(x, y);
+        prize += getAceHigh(kortvarden, x, y);
+        prize += getStraightAndFlushes(kortvarden, kortsuits);
+
+        if (prize == 0) {
+            System.out.println("No Winnings this round");
+        }
+        return prize;
+
+    }
+
+    public double getQuads(int x, int y) {
         if (x == 4) {
             System.out.println("Four of a kind! == 12 Bang Bucks");
             return 12;
         }
+        return 0;
+    }
+
+    public double getFullHouse(int x, int y) {
         if (x == 3 && y == 2) {
             System.out.println("Full House! == 8 Bang Bucks");
             return 8;
         }
+        return 0;
+    }
+
+    public double getThreeOfAKind(int x, int y) {
         if (x == 3 && y == 1) {
             System.out.println("Three of a kind! == 6 Bang Bucks");
             return 6;
         }
+        return 0;
+    }
 
+    public double getTwoPairs(int x, int y) {
         if (x == 2 && y == 2) {
             System.out.println("Two pairs! == 4 Bang Bucks");
             return 4;
         }
+        return 0;
+    }
 
+    public double getPair(int x, int y) {
         if (x == 2 && y == 1) {
             System.out.println("Pair! == 2 Bang Bucks");
             return 2;
         }
+        return 0;
+    }
+
+    public double getAceHigh(int[] kortvarden, int x, int y) {
+        if (kortvarden[0] == 1 && x == 1 && x - y != 1) {
+            System.out.println("Ace High Up In This House!! == 1 Bang Buck");
+            return 1;
+        }
+        return 0;
+    }
+
+    public double getStraightAndFlushes(int kortvarden[], String kortsuits[]) {
+
+        boolean flush = false;
+        boolean straight = false;
+        boolean kings = false;
+        if (kortvarden[4] == 13) kings = true;
+
         if (kortsuits[0].equals(kortsuits[1]) && kortsuits[1].equals(kortsuits[2]) && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
             flush = true;
         }
@@ -74,7 +112,7 @@ class Win {
             System.out.println("Straight! == 10 Bang Bucks");
             return 10;
         }
-        if (flush && !king) {
+        if (flush && !kings) {
             System.out.println("Straight Flush! == 50 Bang Bucks");
             return 50;
         }
@@ -82,17 +120,8 @@ class Win {
             System.out.println("Royal Straight Flush! == 100 Bang Bucks");
             return 100;
         }
-        if (kortvarden[0] == 1) {
-            System.out.println("Ace High Up In This House!! == 1 Bang Buck");
-            return 1;
-        }
-
-        System.out.println("No winning this round!");
-        return prize;
-
+        return 0;
     }
-
-
 
 }
 
