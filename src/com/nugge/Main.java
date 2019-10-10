@@ -29,14 +29,15 @@ public class Main {
 
             while (cc != 0 && i < 2) {
 
-                System.out.println("Hur många kort vill du byta? [0-5]");
+                System.out.println("How many cards do you want to change? [0-5]");
                 for (int k = 0; k < 1; k++) {
-                    cc = input.nextInt();
-
-                    if (cc < 0 || cc > 5) {
-                        System.out.println("That is not between 0 and 5");
+                    char inputchar = input.next().charAt(0);
+                    if(inputchar !='0' && inputchar!='1' && inputchar!='2'&& inputchar!='3'&&inputchar!='4'&&inputchar!='5'){
+                        System.out.println("Not a valid number");
                         k--;
                     }
+                    cc = Character.getNumericValue(inputchar);
+                   
                 }
                 for (int j = 0; j < cc; j++) {
 
@@ -77,7 +78,15 @@ public class Main {
                 return;
             }
             System.out.println("\nDo you want to continue playing? Yes / No ");
-            play = input.next().charAt(0);
+            for(int z = 0; z<1; z++){
+                play = toUpperCase(input.next().charAt(0));
+                if(play!='Y' && play!='N'){
+                    System.out.println("Please enter either Yes or No you cheeky scrub");
+                    z--;
+                }
+
+            }
+
         }
         System.out.println("Sad to see you go, you cash out a total of: " +mymoney+" Bang Bucks");
     }
