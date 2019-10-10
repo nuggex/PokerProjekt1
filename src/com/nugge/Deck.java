@@ -1,6 +1,5 @@
 package com.nugge;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -25,11 +24,9 @@ class Cardgenerator {
                 Card.color = color[j];
                 Card.values = i;
                 deck.add(Card);
-
             }
         }
         Collections.shuffle(deck);
-
         return deck;
     }
 }
@@ -42,17 +39,11 @@ class Deck {
         deck = freshd;
     }
 
-
     ArrayList<Card> firstdeal() {
         ArrayList<Card> hand = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             hand.add(deck.remove(0));
         }
         return hand;
-
     }
-
-
-
-
 }
