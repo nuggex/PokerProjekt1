@@ -98,9 +98,7 @@ class Win {
 
         boolean flush = false;
         boolean straight = false;
-        boolean kings = false;
-        if (kortvarden[4] == 13) kings = true;
-
+        boolean royal = false;
         if (kortsuits[0].equals(kortsuits[1]) && kortsuits[1].equals(kortsuits[2]) && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
             flush = true;
         }
@@ -108,7 +106,11 @@ class Win {
             straight = true;
         }
         if (kortvarden[4] - kortvarden[0] == 12 && kortvarden[4] - kortvarden[3] == 1 && kortvarden[3] - kortvarden[2] == 1 && kortvarden[2] - kortvarden[1] == 1) {
-            straight = true;
+            royal = true;
+        }
+        if (flush && royal) {
+            System.out.println("Royal Straight Flush! == 100 Bang Bucks");
+            return 100;
         }
         if (flush && !straight) {
             System.out.println("Flush! == 12 Bang Bucks");
@@ -118,14 +120,12 @@ class Win {
             System.out.println("Straight! == 10 Bang Bucks");
             return 10;
         }
-        if (flush && !kings) {
+
+        if (flush) {
             System.out.println("Straight Flush! == 50 Bang Bucks");
             return 50;
         }
-        if (flush) {
-            System.out.println("Royal Straight Flush! == 100 Bang Bucks");
-            return 100;
-        }
+
         return 0;
     }
 
