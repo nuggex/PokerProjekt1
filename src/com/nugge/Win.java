@@ -116,7 +116,7 @@ class Win {
             System.out.println("Flush! == 12 Bang Bucks");
             return 12;
         }
-        if (!flush && straight) {
+        if (!flush && straight || royal) {
             System.out.println("Straight! == 10 Bang Bucks");
             return 10;
         }
