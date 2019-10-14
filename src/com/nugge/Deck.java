@@ -73,7 +73,7 @@ class Deck {
             if(hand.get(i).values == 1){
                 cardvaluseaschars[i] = "A";
             }if(hand.get(i).values == 0){
-                cardvaluseaschars[i] = "J";
+                cardvaluseaschars[i] = "*";
             }
             if(hand.get(i).values <10 && hand.get(i).values >1){
                 cardvaluseaschars[i] = String.valueOf(hand.get(i).values);
@@ -86,5 +86,39 @@ class Deck {
         System.out.println("║  "+hand.get(0).color+"  ║ "+"║  "+hand.get(1).color+"  ║ "+"║  "+hand.get(2).color+"  ║ "+"║  "+hand.get(3).color+"  ║ "+"║  "+hand.get(4).color+"  ║ ");
         System.out.println("║    "+cardvaluseaschars[0]+"║ "+"║    "+cardvaluseaschars[1]+"║ "+"║    "+cardvaluseaschars[2]+"║ "+"║    "+cardvaluseaschars[3]+"║ "+"║    "+cardvaluseaschars[4]+"║ ");
         System.out.println("╚═════╝ "+"╚═════╝ "+"╚═════╝ "+"╚═════╝ "+"╚═════╝ ");
+    }
+
+    public static void printOne(ArrayList<Card> onecard) {
+        String[] cardvaluseaschars = new String[1];
+        for (int i = 0; i < 1; i++) {
+            if (onecard.get(i).values == 13) {
+                cardvaluseaschars[i] = "K";
+            }
+            if (onecard.get(i).values == 12) {
+                cardvaluseaschars[i] = "Q";
+            }
+            if (onecard.get(i).values == 11) {
+                cardvaluseaschars[i] = "J";
+            }
+            if (onecard.get(i).values == 10) {
+                cardvaluseaschars[i] = "T";
+            }
+            if (onecard.get(i).values == 1) {
+                cardvaluseaschars[i] = "A";
+            }
+            if (onecard.get(i).values == 0) {
+                cardvaluseaschars[i] = "*";
+            }
+            if (onecard.get(i).values < 10 && onecard.get(i).values > 1) {
+                cardvaluseaschars[i] = String.valueOf(onecard.get(i).values);
+            }
+            System.out.println("╔═════╗");
+            System.out.println("║"+cardvaluseaschars[0]+"    ║");
+            System.out.println("║  "+onecard.get(0).color+"  ║");
+            System.out.println("║    "+cardvaluseaschars[0]+"║");
+            System.out.println("╚═════╝");
+
+
+        }
     }
 }

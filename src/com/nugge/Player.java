@@ -45,8 +45,17 @@ class Player {
             gg = 6;
         }
         ArrayList<Card> card = Cardgenerator.getNewDeck();
-        int f = card.get(0).values;
-        System.out.println("Your guess was " + guess + " And the card was " + card.get(0));
+
+        ArrayList<Card> onecard = new ArrayList<>();
+        onecard.add(card.remove(0));
+        int f = onecard.get(0).values;
+
+        System.out.println("Your guess was " + guess + " And the card was ");
+        Deck.printOne(onecard);
+        if(f == 0){
+            System.out.println("JOKER JOKER you get your bet back");
+            return temp;
+        }
         if (f == 7) {
             System.out.println("That's a 7 and you lost your bet!");
             return 0;
@@ -63,5 +72,4 @@ class Player {
         return 0;
     }
 
-    }
-
+}
