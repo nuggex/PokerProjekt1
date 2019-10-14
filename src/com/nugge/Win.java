@@ -11,7 +11,7 @@ class Win {
         String[] kortsuits = {hand.get(0).color, hand.get(1).color, hand.get(2).color, hand.get(3).color, hand.get(4).color};
 
         Arrays.sort(kortvarden);
-
+        Arrays.sort(kortsuits);// Joker will always end up at position 0++;
         double prize = 0;
         int[] lista = new int[18]; //for reasons currently unknow lista has to be 17 or higher for everything to work. It's size really doesn't matter thou.
 
@@ -25,17 +25,31 @@ class Win {
         int y = lista[lista.length - 2];
 
         // run all methods for checking the hand for wins //
-        prize += getQuads(x, y);
-        prize += getFullHouse(x, y);
-        prize += getThreeOfAKind(x, y);
-        prize += getTwoPairs(x, y);
-        prize += getPair(x, y);
-        prize += getStraightAndFlushes(kortvarden, kortsuits);
+
+        prize += getFiveOfAKind(x, kortsuits);
+        if (prize == 0) {
+            prize += getQuads(x, y, kortsuits);
+        }
+        if (prize == 0) {
+            prize += getStraightAndFlushes(kortvarden, kortsuits, x);
+        }
+        if (prize == 0) {
+            prize += getFullHouse(x, y, kortsuits);
+        }
+        if (prize == 0) {
+            prize += getThreeOfAKind(x, y, kortsuits);
+        }
+        if (prize == 0) {
+            prize += getTwoPairs(x, y);
+        }
+        if (prize == 0) {
+            prize += getPair(x, y, kortsuits);
+        }
 
 
         //exception to find ace high if all else fails, this was the easiest way of doing this wihtout makinga a bunch of conditions for the if statement to find a hand with only ace high //
         if (prize == 0) {
-            prize += getAceHigh(kortvarden, x, y);
+            prize += getAceHigh(kortvarden, x);
 
             if (prize == 0) {
                 System.out.println("No Winnings this round");
@@ -45,7 +59,28 @@ class Win {
     }
 
     // methods for each winning condtion lie here //
-    private double getQuads(int x, int y) {
+
+    private double getFiveOfAKind(int x, String[] kortsuits) {
+        if (kortsuits[0].equals("J") && x == 4) {
+            System.out.println("Five of a kind! == 1000 Bang Bucks");
+            return 1000;
+        }
+        if (kortsuits[0].equals("J") && kortsuits[1].equals("J") && x == 3) {
+            System.out.println("Five of a kind! == 1000 Bang Bucks");
+            return 1000;
+        }
+        return 0;
+    }
+
+    private double getQuads(int x, int y, String[] kortsuits) {
+        if (kortsuits[0].equals("J") && x == 3) {
+            System.out.println("Four of a kind! == 12 Bang Bucks");
+            return 12;
+        }
+        if (kortsuits[0].equals("J") && kortsuits[1].equals("J") && y == 2) {
+            System.out.println("Four of a kind! == 12 Bang Bucks");
+            return 12;
+        }
         if (x == 4) {
             System.out.println("Four of a kind! == 12 Bang Bucks");
             return 12;
@@ -53,7 +88,11 @@ class Win {
         return 0;
     }
 
-    private double getFullHouse(int x, int y) {
+    private double getFullHouse(int x, int y, String[] kortsuits) {
+        if (kortsuits[0].equals("J") && x == 2 && y == 2) {
+            System.out.println("Full House! == 8 Bang Bucks");
+            return 8;
+        }
         if (x == 3 && y == 2) {
             System.out.println("Full House! == 8 Bang Bucks");
             return 8;
@@ -61,7 +100,15 @@ class Win {
         return 0;
     }
 
-    private double getThreeOfAKind(int x, int y) {
+    private double getThreeOfAKind(int x, int y, String[] kortsuits) {
+        if (x == 1 && kortsuits[0].equals("J") && kortsuits[1].equals("J")) {
+            System.out.println("Three of a kind! == 6 Bang Bucks");
+            return 6;
+        }
+        if (x == 2 && kortsuits[0].equals("J")) {
+            System.out.println("Three of a kind! == 6 Bang Bucks");
+            return 6;
+        }
         if (x == 3 && y == 1) {
             System.out.println("Three of a kind! == 6 Bang Bucks");
             return 6;
@@ -77,15 +124,20 @@ class Win {
         return 0;
     }
 
-    private double getPair(int x, int y) {
-        if (x == 2 && y == 1) {
+    private double getPair(int x, int y, String[] kortsuits) {
+        if (x == 1 && kortsuits[0].equals("J") || x == 2 && y == 1) {
             System.out.println("Pair! == 2 Bang Bucks");
             return 2;
         }
+        /*
+        if (x == 2 && y == 1) {
+            System.out.println("Pair! == 2 Bang Bucks");
+            return 2;
+        }*/
         return 0;
     }
 
-    private double getAceHigh(int[] kortvarden, int x, int y) {
+    private double getAceHigh(int[] kortvarden, int x) {
         if (kortvarden[0] == 1 && x == 1) {
             System.out.println("Ace High Up In This House!! == 1 Bang Buck");
             return 1;
@@ -94,20 +146,66 @@ class Win {
     }
 
     // This condition took some doing, use math to generate booleans to first test the hand and then use the booleans for identifying the hand //
-    private double getStraightAndFlushes(int[] kortvarden, String[] kortsuits) {
+    private double getStraightAndFlushes(int[] kortvarden, String[] kortsuits, int x) {
 
         boolean flush = false;
         boolean straight = false;
         boolean royal = false;
+        // Check for flush without jokers//
         if (kortsuits[0].equals(kortsuits[1]) && kortsuits[1].equals(kortsuits[2]) && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
             flush = true;
         }
+        //  Check for straight without jokers //
         if (kortvarden[4] - kortvarden[3] == 1 && kortvarden[3] - kortvarden[2] == 1 && kortvarden[2] - kortvarden[1] == 1 && kortvarden[1] - kortvarden[0] == 1) {
             straight = true;
         }
+        // Check for royal straight without jokers //
         if (kortvarden[4] - kortvarden[0] == 12 && kortvarden[4] - kortvarden[3] == 1 && kortvarden[3] - kortvarden[2] == 1 && kortvarden[2] - kortvarden[1] == 1) {
             royal = true;
         }
+        // Check for flush with two jokers //
+        if (kortsuits[0].equals("J") && kortsuits[1].equals("J") && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
+            flush = true;
+        }
+        // Check for flush with one joker //
+        if (kortsuits[0].equals("J") && kortsuits[1].equals(kortsuits[2]) && kortsuits[2].equals(kortsuits[3]) && kortsuits[3].equals(kortsuits[4])) {
+            flush = true;
+        }
+
+        // Straight with two jokers //
+
+        // new implementation //
+        if (kortvarden[0] == 0 && kortvarden[1] == 0 && x == 1  ) {
+            if(kortvarden[4] - kortvarden[2] == 3 || kortvarden[4] - kortvarden[2] == 2 || kortvarden[4] - kortvarden[2] == 4){
+                straight = true;
+            }
+        }
+        // Straight with one joker //
+        if (kortvarden[0] == 0 && x == 1 ){
+            if(kortvarden[4] - kortvarden[1] == 3 || kortvarden[4] - kortvarden[1] == 4){
+                straight = true;
+            }
+        }
+
+        // Royal straight without Aces and one joker//
+        if (kortvarden[1] != 1) {
+            if (kortvarden[0] == 0 && kortvarden[1] > 9 && kortvarden[4] - kortvarden[3] > 0 && kortvarden[3] - kortvarden[2] > 0 && kortvarden[2] - kortvarden[1] > 0) {
+                royal = true;
+            }
+        }
+        // Royal Straight with aces and one joker //
+        if (kortvarden[0] == 0 && kortvarden[1] == 1 && kortvarden[2] > 9 && kortvarden[4] - kortvarden[3] > 0 && kortvarden[3] - kortvarden[2] > 0) {
+            royal = true;
+        }
+        // royal straight two jokers and an ace//
+        if (kortvarden[0] == 0 && kortvarden[1] == 0 && kortvarden[2] == 1 && kortvarden[3] > 9 && kortvarden[4] - kortvarden[3] > 0) {
+            royal = true;
+        }
+        // royal straight two jokers without an ace //
+        if (kortvarden[0] == 0 && kortvarden[1] == 0 && kortvarden[2] > 9 && kortvarden[4] - kortvarden[3] > 0 && kortvarden[3] - kortvarden[2] > 0) {
+            royal = true;
+        }
+
         if (flush && royal) {
             System.out.println("Royal Straight Flush! == 100 Bang Bucks");
             return 100;
