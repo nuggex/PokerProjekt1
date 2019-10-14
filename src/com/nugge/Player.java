@@ -62,5 +62,6 @@ class Player {
         System.out.println("Your guess is potato");
         return 0;
     }
-}
+
+    }
 

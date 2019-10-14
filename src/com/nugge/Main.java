@@ -7,12 +7,10 @@ import static java.lang.Character.toUpperCase;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
-/// TEST //
 
     public static void main(String[] args) {
         double mymoney = 10;
         Win mywin = new Win();
-        System.out.println("testtestsetset");
         Player myplayer = new Player();
 
         System.out.println("Welcome to the Poker game \n One game costs 2 Bang Bucks\n  ");
@@ -26,8 +24,10 @@ public class Main {
             Deck mydeck = new Deck(Cardgenerator.getNewDeck());
             ArrayList<Card> current;
             current = mydeck.firstdeal();
-            System.out.println(current);
 
+            //System.out.println(current);
+
+            Deck.print(current);
             while (cc != 0 && i < 100) {
 
                 System.out.println("How many cards do you want to change? [0-5]");
@@ -48,7 +48,7 @@ public class Main {
                         current.set(change, mydeck.deck.remove(0));
                     }
                 }
-                System.out.println(current);
+                Deck.print(current);;
                 i++;
             }
 
@@ -86,4 +86,5 @@ public class Main {
         }
         System.out.println("Sad to see you go, you cash out a total of: " + mymoney + " Bang Bucks");
     }
+
 }
