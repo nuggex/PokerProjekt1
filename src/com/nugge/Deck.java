@@ -28,13 +28,18 @@ class Cardgenerator {
                 deck.add(Card);
             }
         }
+        for (int i = 0; i < 2; i++) {
+            Card Card = new Card();
+            Card.color = "J";
+            Card.values = 0;
+            deck.add(Card);
+        }
         Collections.shuffle(deck);
         return deck;
     }
 }
 
 class Deck {
-
     // Create the empty deck //
     ArrayList<Card> deck;
 
