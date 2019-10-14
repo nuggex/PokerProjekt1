@@ -23,7 +23,7 @@ class Win {
         Arrays.sort(lista);
         int x = lista[lista.length - 1];
         int y = lista[lista.length - 2];
-        
+
         // run all methods for checking the hand for wins //
 
         prize += getFiveOfAKind(x, kortsuits);
