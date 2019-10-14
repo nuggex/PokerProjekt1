@@ -28,7 +28,7 @@ public class Main {
             //System.out.println(current);
 
             Deck.print(current);
-            while (cc != 0 && i < 100) {
+            while (cc != 0 && i < 2) {
 
                 System.out.println("How many cards do you want to change? [0-5]");
                 for (int k = 0; k < 1; k++) {
