@@ -10,7 +10,7 @@ class Win {
         int[] kortvarden = {hand.get(0).values, hand.get(1).values, hand.get(2).values, hand.get(3).values, hand.get(4).values};
         String[] kortsuits = {hand.get(0).color, hand.get(1).color, hand.get(2).color, hand.get(3).color, hand.get(4).color};
 
-        Arrays.sort(kortvarden);
+        Arrays.sort(kortvarden); // Joker will always end up at position 0++; 
 
         double prize = 0;
         int[] lista = new int[18]; //for reasons currently unknow lista has to be 17 or higher for everything to work. It's size really doesn't matter thou.
