@@ -7,11 +7,12 @@ import static java.lang.Character.toUpperCase;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
-/// TEST // 
+/// TEST //
+
     public static void main(String[] args) {
         double mymoney = 10;
         Win mywin = new Win();
-
+        System.out.println("testtestsetset");
         Player myplayer = new Player();
 
         System.out.println("Welcome to the Poker game \n One game costs 2 Bang Bucks\n  ");
