@@ -10,7 +10,7 @@ class Player {
     int changecard() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter which card you want to change 1-5 (0 for none): ");
-        char test = '0';
+        char test;
         int change = 0;
         for (int i = 0; i < 1; i++) {
             test = input.next().charAt(0);

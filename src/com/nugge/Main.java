@@ -7,7 +7,7 @@ import static java.lang.Character.toUpperCase;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
-
+/// TEST // 
     public static void main(String[] args) {
         double mymoney = 10;
         Win mywin = new Win();
