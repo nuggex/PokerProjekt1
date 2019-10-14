@@ -55,7 +55,7 @@ class Deck {
         }
         return hand;
     }
-    public static void print(ArrayList<Card> hand){
+    static void print(ArrayList<Card> hand){
         String[] cardvaluseaschars = new String[5];
         for(int i = 0; i<5; i++){
             if(hand.get(i).values == 13){
@@ -88,7 +88,7 @@ class Deck {
         System.out.println("╚═════╝ "+"╚═════╝ "+"╚═════╝ "+"╚═════╝ "+"╚═════╝ ");
     }
 
-    public static void printOne(ArrayList<Card> onecard) {
+    static void printOne(ArrayList<Card> onecard) {
         String[] cardvaluseaschars = new String[1];
         for (int i = 0; i < 1; i++) {
             if (onecard.get(i).values == 13) {

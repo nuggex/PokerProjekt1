@@ -48,7 +48,7 @@ public class Main {
                         current.set(change, mydeck.deck.remove(0));
                     }
                 }
-                Deck.print(current);;
+                Deck.print(current);
                 i++;
             }
 
