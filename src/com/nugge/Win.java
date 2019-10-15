@@ -175,14 +175,14 @@ class Win {
         // Straight with two jokers //
 
         // new implementation //
-        if (kortvarden[0] == 0 && kortvarden[1] == 0 && y == 1  ) {
-            if(kortvarden[4] - kortvarden[2] == 3 || kortvarden[4] - kortvarden[2] == 2 || kortvarden[4] - kortvarden[2] == 4){
+        if (kortvarden[0] == 0 && kortvarden[1] == 0 && y == 1) {
+            if (kortvarden[4] - kortvarden[2] == 3 || kortvarden[4] - kortvarden[2] == 2 || kortvarden[4] - kortvarden[2] == 4) {
                 straight = true;
             }
         }
         // Straight with one joker //
-        if (kortvarden[0] == 0 && x == 1 ){
-            if(kortvarden[4] - kortvarden[1] == 3 || kortvarden[4] - kortvarden[1] == 4){
+        if (kortvarden[0] == 0 && x == 1) {
+            if (kortvarden[4] - kortvarden[1] == 3 || kortvarden[4] - kortvarden[1] == 4) {
                 straight = true;
             }
         }

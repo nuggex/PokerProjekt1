@@ -89,20 +89,20 @@ class Deck {
                 cardvaluseaschars[i + 5] = " " + hand.get(i).values;
 
             }
-            if (hand.get(i).color == "J") {
+            if (hand.get(i).color.equals("J")) {
                 cardsuits[i] = "JOKER";
             }
-            if (hand.get(i).color != "J") {
+            if (!hand.get(i).color.equals("J")) {
                 cardsuits[i] = "  " + hand.get(i).color + "  ";
             }
 
 
         }
-        System.out.println("╔═════╗ " + "╔═════╗ " + "╔═════╗ " + "╔═════╗ " + "╔═════╗ ");
-        System.out.println("║" + cardvaluseaschars[0] + "   ║ " + "║" + cardvaluseaschars[1] + "   ║ " + "║" + cardvaluseaschars[2] + "   ║ " + "║" + cardvaluseaschars[3] + "   ║ " + "║" + cardvaluseaschars[4] + "   ║ ");
-        System.out.println("║" + cardsuits[0] + "║ " + "║" + cardsuits[1] + "║ " + "║" + cardsuits[2] + "║ " + "║" + cardsuits[3] + "║ " + "║" + cardsuits[4] + "║ ");
-        System.out.println("║   " + cardvaluseaschars[5] + "║ " + "║   " + cardvaluseaschars[6] + "║ " + "║   " + cardvaluseaschars[7] + "║ " + "║   " + cardvaluseaschars[8] + "║ " + "║   " + cardvaluseaschars[9] + "║ ");
-        System.out.println("╚═════╝ " + "╚═════╝ " + "╚═════╝ " + "╚═════╝ " + "╚═════╝ ");
+        System.out.println("\u2554\u2550\u2550\u2550\u2550\u2550\u2557 " + "\u2554\u2550\u2550\u2550\u2550\u2550\u2557 " + "\u2554\u2550\u2550\u2550\u2550\u2550\u2557 " + "\u2554\u2550\u2550\u2550\u2550\u2550\u2557 " + "\u2554\u2550\u2550\u2550\u2550\u2550\u2557 ");
+        System.out.println("\u2551" + cardvaluseaschars[0] + "   \u2551 " + "\u2551" + cardvaluseaschars[1] + "   \u2551 " + "\u2551" + cardvaluseaschars[2] + "   \u2551 " + "\u2551" + cardvaluseaschars[3] + "   \u2551 " + "\u2551" + cardvaluseaschars[4] + "   \u2551 ");
+        System.out.println("\u2551" + cardsuits[0] + "\u2551 " + "\u2551" + cardsuits[1] + "\u2551 " + "\u2551" + cardsuits[2] + "\u2551 " + "\u2551" + cardsuits[3] + "\u2551 " + "\u2551" + cardsuits[4] + "\u2551 ");
+        System.out.println("\u2551   " + cardvaluseaschars[5] + "\u2551 " + "\u2551   " + cardvaluseaschars[6] + "\u2551 " + "\u2551   " + cardvaluseaschars[7] + "\u2551 " + "\u2551   " + cardvaluseaschars[8] + "\u2551 " + "\u2551   " + cardvaluseaschars[9] + "\u2551 ");
+        System.out.println("\u255A\u2550\u2550\u2550\u2550\u2550\u255D " + "\u255A\u2550\u2550\u2550\u2550\u2550\u255D " + "\u255A\u2550\u2550\u2550\u2550\u2550\u255D " + "\u255A\u2550\u2550\u2550\u2550\u2550\u255D " + "\u255A\u2550\u2550\u2550\u2550\u2550\u255D ");
     }
 
     static void printOne(ArrayList<Card> onecard) {
@@ -129,11 +129,11 @@ class Deck {
             if (onecard.get(i).values < 10 && onecard.get(i).values > 1) {
                 cardvaluseaschars[i] = String.valueOf(onecard.get(i).values);
             }
-            System.out.println("╔═════╗");
-            System.out.println("║" + cardvaluseaschars[0] + "    ║");
-            System.out.println("║  " + onecard.get(0).color + "  ║");
-            System.out.println("║    " + cardvaluseaschars[0] + "║");
-            System.out.println("╚═════╝");
+            System.out.println("\u2554\u2550\u2550\u2550\u2550\u2550\u2557");
+            System.out.println("\u2551" + cardvaluseaschars[0] + "    \u2551");
+            System.out.println("\u2551  " + onecard.get(0).color + "  \u2551");
+            System.out.println("\u2551    " + cardvaluseaschars[0] + "\u2551");
+            System.out.println("\u255A\u2550\u2550\u2550\u2550\u2550\u255D");
 
 
         }

@@ -2,7 +2,6 @@ package com.nugge;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import static java.lang.Character.toUpperCase;
 
 // This method is only for taking in and validating the number for the card to be changed  card since the all actual deck functionality lies in Deck //

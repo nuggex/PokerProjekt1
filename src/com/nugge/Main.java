@@ -2,6 +2,7 @@ package com.nugge;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import com.nugge.Deck;
 import com.nugge.Win;
 import com.nugge.Player;
