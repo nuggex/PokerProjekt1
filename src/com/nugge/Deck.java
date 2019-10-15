@@ -15,7 +15,7 @@ class Card {
 
 
 class Cardgenerator {
-    private static String[] color = {"♦", "♥", "♣", "♠"};
+    private static String[] color = {"\u2666", "\u2665", "\u2663", "\u2660"};
 
     // Populate the deck and shuffle it //
     static ArrayList<Card> getNewDeck() {
