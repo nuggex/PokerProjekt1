@@ -31,7 +31,7 @@ class Win {
             prize += getQuads(x, y, kortsuits);
         }
         if (prize == 0) {
-            prize += getStraightAndFlushes(kortvarden, kortsuits, x);
+            prize += getStraightAndFlushes(kortvarden, kortsuits, x, y);
         }
         if (prize == 0) {
             prize += getFullHouse(x, y, kortsuits);
@@ -146,7 +146,7 @@ class Win {
     }
 
     // This condition took some doing, use math to generate booleans to first test the hand and then use the booleans for identifying the hand //
-    private double getStraightAndFlushes(int[] kortvarden, String[] kortsuits, int x) {
+    private double getStraightAndFlushes(int[] kortvarden, String[] kortsuits, int x, int y) {
 
         boolean flush = false;
         boolean straight = false;
@@ -175,7 +175,7 @@ class Win {
         // Straight with two jokers //
 
         // new implementation //
-        if (kortvarden[0] == 0 && kortvarden[1] == 0 && x == 1  ) {
+        if (kortvarden[0] == 0 && kortvarden[1] == 0 && y == 1  ) {
             if(kortvarden[4] - kortvarden[2] == 3 || kortvarden[4] - kortvarden[2] == 2 || kortvarden[4] - kortvarden[2] == 4){
                 straight = true;
             }
