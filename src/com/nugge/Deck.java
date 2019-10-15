@@ -55,45 +55,54 @@ class Deck {
         }
         return hand;
     }
-    static void print(ArrayList<Card> hand){
-        String[] cardvaluseaschars = new String[5];
-        String[] cardsuits  = new String[5];
-        for(int i = 0; i<5; i++){
-            if(hand.get(i).values == 13){
-                cardvaluseaschars[i] = "K";
+
+    static void print(ArrayList<Card> hand) {
+        String[] cardvaluseaschars = new String[10];
+        String[] cardsuits = new String[5];
+        for (int i = 0; i < 5; i++) {
+            if (hand.get(i).values == 13) {
+                cardvaluseaschars[i] = "K ";
+                cardvaluseaschars[i + 5] = " K";
             }
-            if(hand.get(i).values == 12){
-                cardvaluseaschars[i] = "Q";
+            if (hand.get(i).values == 12) {
+                cardvaluseaschars[i] = "Q ";
+                cardvaluseaschars[i + 5] = " Q";
             }
-            if(hand.get(i).values == 11){
-                cardvaluseaschars[i] = "J";
+            if (hand.get(i).values == 11) {
+                cardvaluseaschars[i] = "J ";
+                cardvaluseaschars[i + 5] = " J";
             }
-            if(hand.get(i).values == 10){
-                cardvaluseaschars[i] = "T";
+            if (hand.get(i).values == 10) {
+                cardvaluseaschars[i] = "10";
+                cardvaluseaschars[i + 5] = "10";
             }
-            if(hand.get(i).values == 1){
-                cardvaluseaschars[i] = "A";
-            }if(hand.get(i).values == 0){
-                cardvaluseaschars[i] = "*";
+            if (hand.get(i).values == 1) {
+                cardvaluseaschars[i] = "A ";
+                cardvaluseaschars[i + 5] = " A";
             }
-            if(hand.get(i).values <10 && hand.get(i).values >1){
-                cardvaluseaschars[i] = String.valueOf(hand.get(i).values);
+            if (hand.get(i).values == 0) {
+                cardvaluseaschars[i] = "* ";
+                cardvaluseaschars[i + 5] = " *";
             }
-            if(hand.get(i).color=="J"){
+            if (hand.get(i).values < 10 && hand.get(i).values > 1) {
+                cardvaluseaschars[i] = hand.get(i).values + " ";
+                cardvaluseaschars[i + 5] = " " + hand.get(i).values;
+
+            }
+            if (hand.get(i).color == "J") {
                 cardsuits[i] = "JOKER";
             }
-            if(hand.get(i).color!="J"){
-                cardsuits[i] = "  "+ hand.get(i).color +"  ";
+            if (hand.get(i).color != "J") {
+                cardsuits[i] = "  " + hand.get(i).color + "  ";
             }
-
 
 
         }
-        System.out.println("╔═════╗ "+"╔═════╗ "+"╔═════╗ "+"╔═════╗ "+"╔═════╗ ");
-        System.out.println("║"+cardvaluseaschars[0]+"    ║ "+"║"+cardvaluseaschars[1]+"    ║ "+"║"+cardvaluseaschars[2]+"    ║ "+"║"+cardvaluseaschars[3]+"    ║ "+"║"+cardvaluseaschars[4]+"    ║ ");
-        System.out.println("║"+cardsuits[0]+"║ "+"║"+cardsuits[1]+"║ "+"║"+cardsuits[2]+"║ "+"║"+cardsuits[3]+"║ "+"║"+cardsuits[4]+"║ ");
-        System.out.println("║    "+cardvaluseaschars[0]+"║ "+"║    "+cardvaluseaschars[1]+"║ "+"║    "+cardvaluseaschars[2]+"║ "+"║    "+cardvaluseaschars[3]+"║ "+"║    "+cardvaluseaschars[4]+"║ ");
-        System.out.println("╚═════╝ "+"╚═════╝ "+"╚═════╝ "+"╚═════╝ "+"╚═════╝ ");
+        System.out.println("╔═════╗ " + "╔═════╗ " + "╔═════╗ " + "╔═════╗ " + "╔═════╗ ");
+        System.out.println("║" + cardvaluseaschars[0] + "   ║ " + "║" + cardvaluseaschars[1] + "   ║ " + "║" + cardvaluseaschars[2] + "   ║ " + "║" + cardvaluseaschars[3] + "   ║ " + "║" + cardvaluseaschars[4] + "   ║ ");
+        System.out.println("║" + cardsuits[0] + "║ " + "║" + cardsuits[1] + "║ " + "║" + cardsuits[2] + "║ " + "║" + cardsuits[3] + "║ " + "║" + cardsuits[4] + "║ ");
+        System.out.println("║   " + cardvaluseaschars[5] + "║ " + "║   " + cardvaluseaschars[6] + "║ " + "║   " + cardvaluseaschars[7] + "║ " + "║   " + cardvaluseaschars[8] + "║ " + "║   " + cardvaluseaschars[9] + "║ ");
+        System.out.println("╚═════╝ " + "╚═════╝ " + "╚═════╝ " + "╚═════╝ " + "╚═════╝ ");
     }
 
     static void printOne(ArrayList<Card> onecard) {
@@ -121,9 +130,9 @@ class Deck {
                 cardvaluseaschars[i] = String.valueOf(onecard.get(i).values);
             }
             System.out.println("╔═════╗");
-            System.out.println("║"+cardvaluseaschars[0]+"    ║");
-            System.out.println("║  "+onecard.get(0).color+"  ║");
-            System.out.println("║    "+cardvaluseaschars[0]+"║");
+            System.out.println("║" + cardvaluseaschars[0] + "    ║");
+            System.out.println("║  " + onecard.get(0).color + "  ║");
+            System.out.println("║    " + cardvaluseaschars[0] + "║");
             System.out.println("╚═════╝");
 
 
